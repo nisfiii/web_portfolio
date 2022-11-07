@@ -1,0 +1,231 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tugas Website</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+	<style>
+        body{
+			font-family: Georgia, serif;
+			margin:5px 100px 20px 100px;
+			padding:10px 40px;
+        }
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(91, 156, 226);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(187, 108, 51);
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid rgb(84, 85, 86);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border: 3px solid rgb(82, 95, 119);
+}
+
+/* Style buttons */
+.btn {
+  background-color: chocolate; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: dodgerblue;
+}
+
+    </style>
+</head> 
+
+<body>
+	<center>
+		<h1>Laila's Blog</h1> 
+		<img id="myImg" src="file:///Users/apple/Documents/QS2/TUGAS_WEB/images/nisfi.jpg"
+		style="width:230px;max-width:300px">
+		<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	<!-- The Close Button -->
+	<span class="close">&times;</span>
+  
+	<!-- Modal Content (The Image) -->
+	<img class="modal-content" id="img01">
+  
+	<!-- Modal Caption (Image Text) -->
+	<div id="caption"></div>
+  </div>
+	</center> 
+	<br>
+	<center>
+		<div class="bio">Hi, welcome to my blog. Here, we can become closer like without a barrier.</div>
+		<a href="about.html">Find out more about me</a>
+		<br>
+		<br>
+	</center>
+	<hr> 
+		</div>
+			<ul class="navbar-nav flex-column text-left">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Home <span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="blog-post.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Post</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="contact.html"><i class="fas fa-user fa-fw mr-2"></i>Contact</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="intro">Subscribe and get my latest blog post in your inbox.</div>
+			<br>
+			<form class="signup-form form-inline justify-content-center">
+				<div class="form-group">
+					<input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="email">
+					<button type="submit" class="btn btn-primary">Subscribe</button>
+				</div>
+			</form>
+
+<script type="text/javascript">
+	// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+    
+	<br>
+    <hr>
+    <footer><center>© Nisfi Nuur Lailatin</center></footer>
+</body>
+</html> 
